@@ -1,19 +1,14 @@
-<script lang="ts">
-    import {createEventDispatcher} from "svelte";
-    const dispatch = createEventDispatcher();
-
-    function handleClick(){
-        dispatch("clicked");
-    }
-</script>
-
-<div class="modal" on:click={handleClick}>
+<div class="backdrop">
+  <div class="modal">
     <slot />
+  </div>
 </div>
 
 <style lang="scss">
-    .modal {
-        @apply fixed top-0 left-0 h-full w-full grid place-items-center;
-        @apply text-black backdrop-blur-3xl bg-blue-100/50;
-    }
+  .backdrop {
+    @apply w-full h-full fixed bg-gray-100/80;
+  }
+  .modal {
+    @apply grid place-items-center;
+  }
 </style>

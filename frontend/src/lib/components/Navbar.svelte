@@ -16,7 +16,7 @@
 </div>
 
 {#if mod}
-  <Modal on:clicked={() => (mod = !mod)}>
+  <Modal>
     <Card>
       <Info></Info>
     </Card>
