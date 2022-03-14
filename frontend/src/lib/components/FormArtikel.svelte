@@ -22,7 +22,7 @@
   }
 </script>
 
-<div class="container">
+<div class="container min-h-[20rem]">
   <div class="form">
     <form on:submit|preventDefault={handleSubmit} method="post">
       {#if wrg}

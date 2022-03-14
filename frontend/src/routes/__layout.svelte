@@ -1,6 +1,7 @@
-<script>
+<script lang="ts">
   import "../app.css";
   import "../app.scss";
+  import Navbar from "$lib/components/Navbar.svelte";
 </script>
 
 <svelte:head>
@@ -8,18 +9,13 @@
 </svelte:head>
 
 <div class="body">
-  <div class="navbar">
-    <h2 class="header">Demo</h2>
-  </div>
+  <Navbar></Navbar>
   <div class="content">
     <slot />
   </div>
 </div>
 
 <style lang="scss">
-  .navbar {
-    @apply sticky p-2 bg-blue-300 text-center;
-  }
   .content {
     @apply items-center p-10;
   }

@@ -8,16 +8,16 @@
 
 		
 
-		<link rel="modulepreload" href="/_app/start-247e8466.js">
+		<link rel="modulepreload" href="/_app/start-d3f201a8.js">
 		<link rel="modulepreload" href="/_app/chunks/vendor-61761d2d.js">
 		<link rel="modulepreload" href="/_app/pages/__layout.svelte-a72ef434.js">
-		<link rel="modulepreload" href="/_app/pages/index.svelte-1857ab36.js">
+		<link rel="modulepreload" href="/_app/pages/index.svelte-67c42ca1.js">
 		<link rel="stylesheet" href="/_app/assets/start-d977ffc4.css">
-		<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-3c354ce7.css">
-		<link rel="stylesheet" href="/_app/assets/pages/index.svelte-7586a691.css">
+		<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-ec793520.css">
+		<link rel="stylesheet" href="/_app/assets/pages/index.svelte-ef4bfe75.css">
 
 		<script type="module">
-			import { start } from "/_app/start-247e8466.js";
+			import { start } from "/_app/start-d3f201a8.js";
 			start({
 				target: document.querySelector("#svelte"),
 				paths: {"base":"","assets":""},
@@ -31,7 +31,7 @@
 					error: null,
 					nodes: [
 						import("/_app/pages/__layout.svelte-a72ef434.js"),
-						import("/_app/pages/index.svelte-1857ab36.js")
+						import("/_app/pages/index.svelte-67c42ca1.js")
 					],
 					page: {
 						host: location.host, // TODO this is redundant
@@ -50,16 +50,18 @@
 
 
 <div class="body"><div class="navbar svelte-ykf8f3"><h2 class="header">Demo</h2></div>
-  <div class="content svelte-ykf8f3"><div class="container"><div class="form-berita"><div class="container svelte-1rfn0oz"><div class="form"><form method="post" class="svelte-1rfn0oz">
-  
-        <textarea name="data" id="data" cols="30" rows="10" class="svelte-1rfn0oz"></textarea>
-        <button class="green svelte-1e80xbg" type="submit">Submit
-</button></form></div>
-</div></div>
+  <div class="content svelte-ykf8f3"><div class="container lg:flex gap-2"><div class="lg:min-w-[50%]"><p class="text-left">input teks yang ingin di-analisis:</p>
+    <div class="form-berita"><div class="container min-h-[20rem] svelte-1gyvo6b"><div class="form"><form method="post" class="svelte-1gyvo6b">
 
-  <div class="hasil svelte-9xylu2">
+      <textarea name="data" id="data" cols="30" rows="10" class="svelte-1gyvo6b"></textarea>
+      <button class="green svelte-3399zc" type="submit">Submit
+</button></form></div>
+</div></div></div>
+
+  <div class="lg:min-w-[50%]"><p class="text-left">hasil anailsis:</p>
+    <div class="hasil min-h-[20rem] svelte-exsr75">
       
-    </div>
+    </div></div>
 </div></div>
 </div>
 

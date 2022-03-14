@@ -11,7 +11,7 @@
 
   function handleSubmit(e) {
     //! delete address:port before build
-    const url = "http://127.0.0.1:5000/api/1/predict/";
+    const url = "/api/1/predict/";
     data = e.detail;
     if (data) {
       promise = predictText(url, data);
@@ -22,41 +22,45 @@
   function copyHasil() {
     var copyText = document.getElementById("hasil-analisa").innerText;
     navigator.clipboard.writeText(copyText);
-    alert("Hasil Analisis telah tersimpan dalam clipboard");
+    alert("Hasil analisis telah tersimpan dalam clipboard");
   }
 </script>
 
-<div class="container">
-  <p class="text-left">input teks yang ingin di-analisis:</p>
-  <div class="form-berita">
-    <FormArtikel on:submit={handleSubmit} />
+<div class="container lg:flex gap-2">
+  <div class=" lg:min-w-[50%]">
+
+    <p class="text-left">input teks yang ingin di-analisis:</p>
+    <div class="form-berita">
+      <FormArtikel on:submit={handleSubmit} />
+    </div>
+
   </div>
 
-  <p class="text-left">hasil anailsis:</p>
-  <div class="hasil">
-    {#await promise}
+  <div class="lg:min-w-[50%]">
+
+    <p class="text-left">hasil anailsis:</p>
+    <div class="hasil min-h-[20rem]">
+      {#await promise}
       {#if load}
         ..loading
       {/if}
     {:then promise}
       {#if raw}
         <div class="flex gap-1">
-          <div>
             <Btn color="blue" on:click={() => (raw = !raw)}>Tabel</Btn>
-          </div>
-          <div>
-            <p class="text-left text-blue-800">
+          
+            <p class="text-blue-800">
               klik text untuk meng-copy hasil ke <i>clipboard</i>.
             </p>
-          </div>
         </div>
 
         <div id="hasil-analisa" on:click={() => copyHasil()}>
           {JSON.stringify(promise)}
         </div>
       {:else}
-        <div class="text-left my-2">
+        <div class="flex gap-1">
           <Btn color="blue" on:click={() => (raw = !raw)}>Json</Btn>
+          <p class="text-blue-800">klik untuk melihat versi mentah.</p>
         </div>
 
         <TableHasil>
@@ -84,14 +88,16 @@
     {/await}
   </div>
 </div>
+</div>
 
 <style lang="scss">
   td,
   tr {
     @apply border-2 border-white px-1;
   }
+
   .hasil {
-    @apply flex p-2 justify-center text-center;
+    @apply flex p-2;
     @apply flex-col gap-y-2 border-2;
   }
 
