@@ -11,7 +11,7 @@
 <p>Situs ini hanya merupakan contoh dari penerapan algoritma nalisis naive-bayes, untuk keperluan yang lebih mendalam silahkan unduh <em>source code</em> algoritma dihalaman Github saya.
 </p>
 <ul>
-<li><a href="https://github.com/RegalOctopus/flask-sentimen"><em>source code situs ini</em></a></li>
+<li><a href="https://github.com/RegalOctopus/flask-sk"><em>source code situs ini</em></a></li>
 <li><a href="https://github.com/RegalOctopus/analisis-sentimen-naive-bayes"><em>source code algoritma</em></a></li>
 </ul>
 
