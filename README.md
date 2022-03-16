@@ -2,6 +2,12 @@
 Pengaplikasian analisis sentimen menggunakan algoritma naive-bayes, dari [proyek ini](https://github.com/RegalOctopus/analisis-sentimen-naive-bayes).
 
 Dibuat untuk memenuhi tugas praktek.
+## *Docker*
+```bash
+docker build -t flask-sk:latest .
+docker run flask-sk
+```
+
 ## *backend*
 
 ```bash
