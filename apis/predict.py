@@ -1,6 +1,6 @@
 from flask import request
 from flask_restx import Namespace, Resource, fields
-from flask_cors import cross_origin
+# from flask_cors import cross_origin
 from resources.predictor import predTotal, perKata, perKalimat
 
 api = Namespace(
@@ -8,7 +8,7 @@ api = Namespace(
     description='prediksi sentimen', 
     # * kontrol akses dari domain lain.
     # ! rid of this decorator in production.
-    decorators=[cross_origin()]
+    # decorators=[cross_origin()]
     )
     
 jsondata = api.model('data', {
