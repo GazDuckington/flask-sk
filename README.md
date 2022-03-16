@@ -20,10 +20,7 @@ pip install -r requirements.txt
 export FLASK_ENV=development
 flask run
 ```
-karena nltk dianggap sebagai risiko keamanan dalam github, modul tersebut harus dihapus dari daftar *requirements.txt*. Instalasai nltk dapat dilakukan dengan:
-```bash
-pip install nltk
-```
+
  <br>
 
 setelah instalasi, buka halaman ```http://127.0.0.1:5000/docs``` untuk daftar API endpoints.
