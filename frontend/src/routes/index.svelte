@@ -11,7 +11,7 @@
 
   function handleSubmit(e) {
     //! delete address:port before build
-    const url = "/api/1/predict/";
+    const url = "http://localhost:5000/api/1/predict/";
     data = e.detail;
     if (data) {
       promise = predictText(url, data);
@@ -73,7 +73,7 @@
               </td>
               <td class="perkalimat">{kt.kalimat}</td>
               <td class="perkata">
-                {#each kt.perkata as tt}
+                {#each kt["perkata"] as tt}
                   <div class={tt.label == "1" ? "blue" : "red"}>
                     <p>{tt.freq}({tt.kata})</p>
                   </div>
