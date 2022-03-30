@@ -51,7 +51,7 @@
     @apply text-center;
     @apply shadow-md;
     textarea {
-      @apply bg-gray-300 shadow-sm p-1 rounded;
+      @apply bg-gray-300 shadow-sm p-1 rounded outline-none;
     }
   }
   .warning {

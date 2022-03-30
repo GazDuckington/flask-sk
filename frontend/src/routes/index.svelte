@@ -11,7 +11,7 @@
 
   function handleSubmit(e) {
     //! delete address:port before build
-    const url = "http://localhost:5000/api/1/predict/";
+    const url = "/api/1/predict/";
     data = e.detail;
     if (data) {
       promise = predictText(url, data);
