@@ -29,7 +29,7 @@ def readAllTraining():
 
 @cache
 def readLoglikelihood():
-    """Read all loglikelihoods"""
+    """Read all loglikelihoods. Returns dictionary."""
     local_session = session(bind=engine)
     loglikelihood = local_session.query(Likelihood).all()
 
@@ -37,7 +37,7 @@ def readLoglikelihood():
 
 @cache
 def readLogprior():
-    """Read all logprior"""
+    """Read all logprior. Returns dictionary."""
     local_session = session(bind=engine)
     prior = local_session.query(Prior).order_by(desc(Prior.id)).first()
 
