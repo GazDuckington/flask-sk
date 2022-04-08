@@ -2,6 +2,7 @@ from flask import request
 from flask_restx import Namespace, Resource, fields
 # from flask_cors import cross_origin
 from resources.predictor import predTotal, perKalimat
+from multiprocessing import Pool, cpu_count
 
 api = Namespace(
     'predict', 
@@ -17,6 +18,7 @@ jsondata = api.model('data', {
 
 parser = api.parser()
 parser.add_argument('data', type=str)
+
 @api.route('/')
 class predictKalimat(Resource):
     @api.expect(jsondata, parser)

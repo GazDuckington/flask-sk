@@ -20,6 +20,7 @@ def insertTraining(txt: str, lbl: int):
     local_session.add(new_training)
     local_session.commit()
 
+@cache
 def readAllTraining():
     """Read all training dataset"""
     local_session = session(bind=engine)
