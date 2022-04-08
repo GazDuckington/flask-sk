@@ -1,4 +1,12 @@
-from database.models import Training, Prior, Likelihood, engine, Base, session
+from database.models import (
+    Training,
+    Prior, 
+    Likelihood, 
+    engine, 
+    Base, 
+    session
+)
+from functools import cache
 from sqlalchemy import desc
 
 def createDb():
@@ -19,6 +27,7 @@ def readAllTraining():
 
     return {data.id: {'text': data.text, 'label': data.label} for data in training}
 
+@cache
 def readLoglikelihood():
     """Read all loglikelihoods"""
     local_session = session(bind=engine)
@@ -26,6 +35,7 @@ def readLoglikelihood():
 
     return {data.text: data.loglikelihood for data in loglikelihood}
 
+@cache
 def readLogprior():
     """Read all logprior"""
     local_session = session(bind=engine)
