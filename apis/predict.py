@@ -1,7 +1,7 @@
 from flask import request
 from flask_restx import Namespace, Resource, fields
 # from flask_cors import cross_origin
-from resources.predictor import predTotal, perKata, perKalimat
+from resources.predictor import predTotal, perKalimat
 
 api = Namespace(
     'predict', 
@@ -24,12 +24,9 @@ class predictKalimat(Resource):
         x = {}
         data = request.get_json()
         ttl = predTotal(data['data'])
-        # ttt = perKata(data['data'])
         txt = perKalimat(data['data'])
         x = {
             'total': ttl, 
             'perkalimat': txt, 
-            # 'perkata': ttt
             }
-        # print(x)
         return x
