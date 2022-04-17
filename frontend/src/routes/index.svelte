@@ -9,7 +9,7 @@
   let raw = false;
   let promise = Promise.all([]);
 
-  function handleSubmit(e) {
+  function handleSubmit(e: any) {
     //! delete address:port before build
     const url = "/api/1/predict/";
     data = e.detail;
@@ -107,7 +107,7 @@
 
   .perkata {
     @apply border-0 flex flex-wrap max-w-sm;
-    text-style: none;
+    font-style: none;
   }
   .perkalimat {
     @apply max-w-md;

@@ -2,7 +2,7 @@
   import Btn from "$lib/elements/Btn.svelte";
   import { createEventDispatcher } from "svelte";
 
-  let artikel, wrg: string;
+  let artikel: string, wrg: string;
   let min = 4;
   const dispatch = createEventDispatcher();
 
