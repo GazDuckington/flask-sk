@@ -1,5 +1,6 @@
 # flask-sk
 [buka situs](https://ghazy-kp.herokuapp.com)
+
 Pengaplikasian analisis sentimen menggunakan algoritma naive-bayes, dari [proyek ini](https://github.com/RegalOctopus/analisis-sentimen-naive-bayes).
 
 Dibuat untuk memenuhi tugas praktek.
