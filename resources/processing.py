@@ -1,3 +1,4 @@
+from os import pread
 import nltk, re
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
@@ -50,3 +51,21 @@ def freqs(txt):
     Output: tuple
     """
     return nltk.FreqDist(txt).most_common()
+
+if __name__ == "__main__":
+    import sqlite3
+    from sqlite3 import Error
+    conn = None
+    try:
+        conn = sqlite3.connect("database/dataset.db")
+    except Error as e:
+        print(e)
+    
+    with conn:
+        cur = conn.cursor()
+        i: int = 0
+        for t in stopwords_id:
+            # tmp = t
+            cur.execute("""INSERT INTO stop_words VALUES(?,?)""", (i,t))
+            i += 1
+    # print(type(stopwords_id))
