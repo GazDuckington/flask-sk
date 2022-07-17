@@ -3,7 +3,7 @@ version: '3.4'
 services:
   flasksk:
     volumes:
-      - .:/myvol
+      - .:/app
     image: flasksk
     build:
       context: .
