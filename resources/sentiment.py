@@ -1,9 +1,11 @@
+from typing import List, Tuple
+
 import numpy as np
+
 from .processing import normalisasi
-import math
 
 # *kamus frekuensi kata
-def kamus_freq(teks, label):
+def kamus_freq(teks: List, label: List[int]) -> dict:
     """kamus frekwensi kata dalam dokumen
     input:
         teks: list string
@@ -22,26 +24,27 @@ def kamus_freq(teks, label):
                 result[pair] = 1
     return result
 
-# *NBC training
-def train_nbc(freqs, train_x, train_y):
+# ?? too complex?
+# ** NBC training
+def train_nbc(freqs: dict, train_y: np.array.astype):
     """melatih naive-bayes classifier
     Args:
         freqs ([dict]): [kamus frekuensi kata data training]
         train_y ([array]): [label sentimen data training]
 
     Returns:
-        logprior[integer]: [nilai probabilitas prior]
+        logprior[float]: [nilai probabilitas prior]
         loglikelihood[dict]: [kamus probabilitas likelihood setiap kata pada data training]
     """
-    loglikelihood = {}
-    logprior = 0
+    loglikelihood: dict = {}
+    logprior: float = 0
     N_pos = N_neg = 0
 
-    unique_words = {pair[0] for pair in freqs.keys()}
+    unique_words = {pair[0] for pair in freqs}
     v = len(unique_words)
 
     # menghitung jumlah kata negatif (N_neg) dan positif (N_pos)
-    for pair in freqs.keys():
+    for pair in freqs:
         if pair[1] > 0:
             N_pos += freqs[(pair)]
         else:
@@ -72,27 +75,27 @@ def train_nbc(freqs, train_x, train_y):
         return logprior, loglikelihood
 
 # *prediktor
-def predict_nbc(text, logprior, loglikelihood):
+def predict_nbc(text: str, logprior: float, loglikelihood: dict) -> float:
     """prediktor naive-bayes
     Args:
         text ([string]): [kalimat yang ingin diketahui sentimennya]
-        logprior ([integer]): [probabilitas prior]
+        logprior ([float]): [probabilitas prior]
         loglikelihood ([dict]): [probabilitas likelihood]
 
     Returns:
-        p[integer]: [nilai probabilitas sentimen]
+        p[float]: [nilai probabilitas sentimen]
     """
     word_l = normalisasi(text)
     p = 0
     p += logprior
 
-    for word in word_l:
+    for word in word_l:  # type: ignore
         if word in loglikelihood:
             p += loglikelihood[word]
     return p
 
 # *test nbc
-def test_nbc(test_x, test_y, logprior, loglikelihood):
+def test_nbc(test_x: List, test_y: List, logprior: float, loglikelihood: dict) -> float:
     """menguji naivve-bayes classifier
     Input:
         test_x: list kata

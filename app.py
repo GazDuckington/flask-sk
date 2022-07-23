@@ -1,16 +1,16 @@
-from flask import Flask, send_from_directory
-from apis import api
 import os
+
+from flask import Flask, send_from_directory
+
+from apis import api
 
 app = Flask(__name__)
 api.init_app(app)
 
-# TODO: add svelte frontend
 @app.route('/')
 def homePage():
     return send_from_directory('build', 'index.html')
 
-# TODO: add routes to static files
 @app.route('/<path:path>')
 def staticFiles(path):
     return send_from_directory('build', path)

@@ -1,25 +1,28 @@
 from flask import request
+from flask_cors import cross_origin
 from flask_restx import Namespace, Resource, fields
-# from flask_cors import cross_origin
-from resources.predictor import predTotal, perKalimat
-from multiprocessing import Pool, cpu_count
+from resources.predictor import perKalimat, predTotal
+
+from wrapper import secure
 
 api = Namespace(
     'predict', 
     description='prediksi sentimen', 
     # * kontrol akses dari domain lain.
     # ! rid of this decorator in production.
-    # decorators=[cross_origin()]
+    decorators=[cross_origin()]
     )
     
 jsondata = api.model('data', {
     'data': fields.String
 })
 
+
 parser = api.parser()
 parser.add_argument('data', type=str)
 
 @api.route('/')
+@secure
 class predictKalimat(Resource):
     @api.expect(jsondata, parser)
     def post(self):
