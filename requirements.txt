@@ -5,3 +5,4 @@ sqlalchemy
 nltk
 sastrawi
 numpy
+python-dotenv

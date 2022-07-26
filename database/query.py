@@ -1,8 +1,9 @@
 from functools import cache
+from typing import Any
 
 from sqlalchemy import desc
 
-from database.models import (
+from .models import (
     Base,
     Likelihood,
     Prior,
@@ -13,12 +14,12 @@ from database.models import (
 )
 
 
-def createDb():
+def createDb() -> None:
     """Create Database dataset.db"""
     Base.metadata.create_all(engine)
 
 
-def insertTraining(txt: str, lbl: int):
+def insertTraining(txt: str, lbl: int) -> None:
     """Insert text and label into training table"""
     local_session = session(bind=engine)
     new_training = Training(text=txt, label=lbl)
@@ -27,7 +28,7 @@ def insertTraining(txt: str, lbl: int):
 
 
 @cache
-def readStopWords():
+def readStopWords() -> set:
     """Read all stop words"""
     local_session = session(bind=engine)
     stops = local_session.query(StopWords).all()
@@ -36,7 +37,7 @@ def readStopWords():
 
 
 @cache
-def readAllTraining():
+def readAllTraining() -> dict:
     """Read all training dataset"""
     local_session = session(bind=engine)
     training = local_session.query(Training).yield_per(5).all()
@@ -45,7 +46,7 @@ def readAllTraining():
 
 
 @cache
-def readLoglikelihood():
+def readLoglikelihood() -> dict:
     """Read all loglikelihoods. Returns dictionary."""
     local_session = session(bind=engine)
     loglikelihood = local_session.query(Likelihood).all()
@@ -54,9 +55,9 @@ def readLoglikelihood():
 
 
 @cache
-def readLogprior():
+def readLogprior() -> Any:
     """Read all logprior. Returns dictionary."""
     local_session = session(bind=engine)
     prior = local_session.query(Prior).order_by(desc(Prior.id)).first()
 
-    return prior.logprior
+    return prior.logprior  # type: ignore

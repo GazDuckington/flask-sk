@@ -1,6 +1,6 @@
 from flask_restx import Api
-from .training import api as training
 from .predict import api as predict
+from .likely import api as likeli
 
 api = Api(
         #* alamat halaman dokumentasi
@@ -9,9 +9,9 @@ api = Api(
         title='API docs', 
         description='Dokumentasi untuk endpoints API', 
         #* url prefix untuk endpoint
-        prefix='/api/1'
+        prefix='/api'
         )
 
 #* add routes here :)
-api.add_namespace(training)
 api.add_namespace(predict)
+api.add_namespace(likeli)

@@ -1,0 +1,13 @@
+POST http://127.0.0.1:5000/api/predict HTTP/1.1
+Content-Type: application/json
+Authorization: {{$dotenv VITE_API_KEY}} 
+
+{
+    "data": "bagussss"
+}
+
+###
+
+GET http://127.0.0.1:5000/api/likelihoods HTTP/1.1
+Accept: application/json
+Authorization: {{$dotenv VITE_API_KEY}}

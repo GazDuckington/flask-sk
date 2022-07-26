@@ -1,9 +1,11 @@
+import os
 from functools import wraps
-
 from flask import request
+from dotenv import load_dotenv
 
-key = "ya29.bwLu0ruxXdXe_RMOSYgfiCPORNMHLkf9rCDmV1rKtWu90TuF1d8B2SmdUlrjeOWNYThkgMM"
+load_dotenv()
 
+key = os.environ.get("VITE_API_KEY")
 
 def secure(f):
     @wraps(f)

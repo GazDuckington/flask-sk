@@ -3,13 +3,13 @@ from flask_cors import cross_origin
 from flask_restx import Namespace, Resource, fields
 from resources.predictor import perKalimat, predTotal
 
-from wrapper import secure
+from .wrapper import secure
 
 api = Namespace(
     'predict', 
     description='prediksi sentimen', 
-    # * kontrol akses dari domain lain.
-    # ! rid of this decorator in production.
+    # ** kontrol akses dari domain lain.
+    # !! rid of this decorator in production.
     decorators=[cross_origin()]
     )
     
@@ -22,14 +22,14 @@ parser = api.parser()
 parser.add_argument('data', type=str)
 
 @api.route('/')
-@secure
 class predictKalimat(Resource):
+    method_decorators = [secure]
     @api.expect(jsondata, parser)
-    def post(self):
+    def post(self) -> dict:
         x = {}
         data = request.get_json()
-        ttl = predTotal(data['data'])
-        txt = perKalimat(data['data'])
+        ttl = predTotal(data['data']) # type: ignore
+        txt = perKalimat(data['data']) # type: ignore
         x = {
             'total': ttl, 
             'perkalimat': txt, 
