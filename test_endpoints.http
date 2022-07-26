@@ -1,4 +1,4 @@
-POST http://127.0.0.1:5000/api/predict HTTP/1.1
+POST http://127.0.0.1:5000/api/predict/ HTTP/1.1
 Content-Type: application/json
 Authorization: {{$dotenv VITE_API_KEY}} 
 
@@ -8,6 +8,12 @@ Authorization: {{$dotenv VITE_API_KEY}}
 
 ###
 
-GET http://127.0.0.1:5000/api/likelihoods HTTP/1.1
+GET http://127.0.0.1:5000/api/logs/likelihoods/ HTTP/1.1
+Accept: application/json
+Authorization: {{$dotenv VITE_API_KEY}}
+
+###
+
+GET http://127.0.0.1:5000/api/logs/prior HTTP/1.1
 Accept: application/json
 Authorization: {{$dotenv VITE_API_KEY}}
