@@ -1,3 +1,4 @@
+from typing import List
 from flask import request
 from flask_cors import cross_origin
 from flask_restx import Namespace, Resource, fields
@@ -25,13 +26,8 @@ parser.add_argument('data', type=str)
 class predictKalimat(Resource):
     method_decorators = [secure]
     @api.expect(jsondata, parser)
-    def post(self) -> dict:
-        x = {}
+    def post(self) -> List:
         data = request.get_json()
         ttl = predTotal(data['data']) # type: ignore
         txt = perKalimat(data['data']) # type: ignore
-        x = {
-            'total': ttl, 
-            'perkalimat': txt, 
-            }
-        return x
+        return [{"total": ttl, "detail": txt}]

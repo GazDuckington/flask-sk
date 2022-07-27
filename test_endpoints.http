@@ -3,7 +3,7 @@ Content-Type: application/json
 Authorization: {{$dotenv VITE_API_KEY}} 
 
 {
-    "data": "bagussss"
+    "data": "bagussss sekali desainnya. namun, service yang diberikan sangat buruk."
 }
 
 ###
