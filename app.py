@@ -1,6 +1,8 @@
+import json
 import os
 
 from flask import Flask, send_from_directory
+from flask.wrappers import Response
 
 from apis import api
 
@@ -9,7 +11,9 @@ api.init_app(app)
 
 @app.route('/')
 def homePage():
-    return send_from_directory('build', 'index.html')
+    dict = {"message":"hello"}
+    return Response(json.dumps(dict), mimetype='application/json')
+    # return send_from_directory('build', 'index.html')
 
 @app.route('/<path:path>')
 def staticFiles(path):
