@@ -1,9 +1,11 @@
 from typing import List
-from flask_restx import Namespace, Resource
+
 from flask_cors import cross_origin
+from flask_restx import Namespace, Resource
+
 from database.query import readLoglikelihood, readLogprior
+
 from .wrapper import secure
-from typing import List
 
 api = Namespace(
     'logs',
@@ -11,7 +13,7 @@ api = Namespace(
     decorators=[cross_origin()]
 )
 
-@api.route('/likelihoods/')
+@api.route('/likelihoods')
 class readLikelihood(Resource):
     method_decorators = [secure]
     def get(self) -> List:

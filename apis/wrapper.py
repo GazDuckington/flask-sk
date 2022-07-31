@@ -1,7 +1,8 @@
-import os
 from functools import wraps
-from flask import request
+import os
+
 from dotenv import load_dotenv
+from flask import request
 
 load_dotenv()
 

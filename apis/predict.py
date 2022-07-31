@@ -1,7 +1,9 @@
 from typing import List
+
 from flask import request
 from flask_cors import cross_origin
 from flask_restx import Namespace, Resource, fields
+
 from resources.predictor import perKalimat, predTotal
 
 from .wrapper import secure
