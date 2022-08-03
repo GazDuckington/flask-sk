@@ -11,6 +11,6 @@ key = os.environ.get("VITE_API_KEY")
 def secure(f):
     @wraps(f)
     def check_authorization(*args, **kwargs):
-        return f() if request.headers.get("Authorization") == key else "lol no"
+        return f() if request.headers.get("Authorization") == key else "you are not authorized"
 
     return check_authorization

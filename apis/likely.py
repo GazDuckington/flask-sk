@@ -18,7 +18,7 @@ class readLikelihood(Resource):
     method_decorators = [secure]
     def get(self) -> List:
         lh = readLoglikelihood()
-        return [{"kata": lh[x], "likelihood": x} for x in lh]
+        return [{"likelihood": lh[x], "kata": x} for x in lh]
 
 @api.route('/prior')
 class readPrior(Resource):
