@@ -11,6 +11,7 @@ Flask = "*"
 Flask-Cors = "*"
 SQLAlchemy = "*"
 Sastrawi = "*"
+gunicorn = "*"
 
 [dev-packages]
 
