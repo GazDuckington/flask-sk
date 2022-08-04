@@ -12,6 +12,7 @@ Flask-Cors = "*"
 SQLAlchemy = "*"
 Sastrawi = "*"
 gunicorn = "*"
+werkzeug = "2.1.2"
 
 [dev-packages]
 
