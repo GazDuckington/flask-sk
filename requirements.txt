@@ -1,9 +1,0 @@
-flask
-flask_restx
-flask_cors
-sqlalchemy
-nltk
-sastrawi
-numpy
-python-dotenv
-gunicorn
