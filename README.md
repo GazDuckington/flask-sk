@@ -5,29 +5,32 @@ frontend yang masih aktif, dapat diakses [disini](https://gzfront.herokuapp.com/
 
 Pengaplikasian analisis sentimen menggunakan algoritma naive-bayes, dari [proyek ini](https://github.com/RegalOctopus/analisis-sentimen-naive-bayes).
 
-Dibuat untuk memenuhi tugas praktek.
-## *Docker*
-```bash
-docker build -t flask-sk:latest .
-docker run flask-sk
-```
-
+Dibuat untuk memenuhi tugas praktik.
 ## *backend*
+Ada dua cara untuk meluncurkan backend:
+
+### *Terminal*
+Pastikan sudah didalam lingkungan _virtual_
 
 ```bash
 git clone https://github.com/RegalOctopus/flask-sk.git
 cd flask-sk/
 cd backend/
-# masuk ke lingkungan virtual, dalam kasus ini menggunakan pipenv
 pipenv shell
 pip install -r requirements.txt
 export FLASK_ENV=development
 flask run
 ```
+### *Docker*
+
+```bash
+docker build -t flask-sk:latest .
+docker run flask-sk
+```
 
  <br>
 
-setelah instalasi, buka halaman ```http://127.0.0.1:5000/docs``` untuk daftar API endpoints.
+setelah instalasi, buka halaman ```http://127.0.0.1:5000/docs``` untuk melihat daftar API endpoints.
 
 ## *frontend*
 
