@@ -1,0 +1,33 @@
+Website:
+1. https://gzfront.herokuapp.com/
+
+Repository:
+1. https://github.com/GazDuckington/flask-sk
+
+Pengembangan Backend:
+Pastikan sudah didalam lingkungan virtual, ikuti langkah-langkah berikut:
+
+1. git clone https://github.com/GazDuckington/flask-sk.git
+2. cd flask-sk/
+3. cd backend/
+4. pipenv shell
+5. pip install -r requirements.txt
+6. export FLASK_ENV=development
+7. flask run
+
+Atau, dapat menggunakan docker dengan perintah-perintah berikut:
+1. docker build -t flask-sk:latest .
+2. docker run flask-sk
+
+buka halaman: http://127.0.0.1:<PORT>/docs untuk melihat daftar API endpoints.
+
+Pengembangan Frontend:
+1. cd flask-sk/
+2. cd frontend/
+3. npm i
+4. npm run --dev
+
+halaman dapat diakses melalui: http://127.0.0.1:<PORT>
+
+Peringatan:
+Jika menggunakan Visual Studio Code, hapus/edit folder ".vscode"
