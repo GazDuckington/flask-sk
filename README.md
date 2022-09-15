@@ -1,12 +1,13 @@
 # flask-sk
-
-frontend yang masih aktif, dapat diakses [disini](https://gzfront.herokuapp.com/)
-
-[buka situs](https://ghazy-kp.herokuapp.com) (no longer maintained)
-
 Pengaplikasian analisis sentimen menggunakan algoritma naive-bayes, dari [proyek ini](https://github.com/RegalOctopus/analisis-sentimen-naive-bayes).
-
 Dibuat untuk memenuhi tugas praktik.
+
+- _Repository_ ini: https://github.com/RegalOctopus/flask-sk
+
+- _Frontend_ yang masih aktif, dapat diakses [disini](https://gzfront.herokuapp.com/)
+
+- [buka situs](https://ghazy-kp.herokuapp.com) (no longer maintained)
+
 ## *backend*
 Ada dua cara untuk meluncurkan backend:
 
@@ -28,8 +29,6 @@ flask run
 docker build -t flask-sk:latest .
 docker run flask-sk
 ```
-
- <br>
 
 setelah instalasi, buka halaman ```http://127.0.0.1:5000/docs``` untuk melihat daftar API endpoints.
 
