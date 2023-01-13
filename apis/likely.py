@@ -13,15 +13,19 @@ api = Namespace(
     decorators=[cross_origin()]
 )
 
+
 @api.route('/likelihoods')
 class readLikelihood(Resource):
     method_decorators = [secure]
+
     def get(self) -> List:
         lh = readLoglikelihood()
         return [{"likelihood": lh[x], "kata": x} for x in lh]
 
+
 @api.route('/prior')
 class readPrior(Resource):
     method_decorators = [secure]
+
     def get(self) -> float:
         return readLogprior()
